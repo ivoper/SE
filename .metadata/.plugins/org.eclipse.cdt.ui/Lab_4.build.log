@@ -1,0 +1,21 @@
+20:48:45 **** Build of configuration Debug for project Lab_4 ****
+make -r -j4 all 
+Building file: ../src/Lab_4.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSIS_CORE_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"C:\SE\SE1819\inc" -I"C:\SE\Lab_4\inc" -I"C:\SE\CMSIS_CORE_LPC17xx\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/Lab_4.d" -MT"src/Lab_4.o" -MT"src/Lab_4.d" -o "src/Lab_4.o" "../src/Lab_4.c"
+Finished building: ../src/Lab_4.c
+ 
+Building target: Lab_4.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\SE\SE1819\Debug" -L"C:\SE\CMSIS_CORE_LPC17xx\Debug" -Xlinker -Map="Lab_4.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Lab_4_Debug.ld" -o "Lab_4.axf"  ./src/Lab_4.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lCMSIS_CORE_LPC17xx -lSE1819
+Memory region         Used Size  Region Size  %age Used
+C:\SE\SE1819\Debug\libSE1819.a(rtc.o): In function `RTC_SetSeconds':
+       MFlash512:       12044 B       512 KB      2.30%
+C:\SE\SE1819\Debug/../src/rtc.c:67: undefined reference to `localtime_r'
+        RamLoc32:         496 B        32 KB      1.51%
+collect2.exe: error: ld returned 1 exit status
+        RamAHB32:          0 GB        32 KB      0.00%
+make: *** [Lab_4.axf] Error 1
+
+20:48:46 Build Finished (took 521ms)
+

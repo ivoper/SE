@@ -1,0 +1,1 @@
+-esquema eletrico mal nas rows, tá invertido

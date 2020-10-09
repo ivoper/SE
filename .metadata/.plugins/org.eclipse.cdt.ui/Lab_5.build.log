@@ -1,0 +1,21 @@
+20:48:46 **** Build of configuration Debug for project Lab_5 ****
+make -r -j4 all 
+Building file: ../src/Lab_5.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSIS_CORE_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"C:\SE\Lab_5\inc" -I"C:\SE\SE1819\inc" -I"C:\SE\MFRC522\inc" -I"C:\SE\CMSIS_CORE_LPC17xx\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/Lab_5.d" -MT"src/Lab_5.o" -MT"src/Lab_5.d" -o "src/Lab_5.o" "../src/Lab_5.c"
+Finished building: ../src/Lab_5.c
+ 
+Building target: Lab_5.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\SE\CMSIS_CORE_LPC17xx\Debug" -L"C:\SE\SE1819\Debug" -L"C:\SE\MFRC522\Release" -Xlinker -Map="Lab_5.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Lab_5_Debug.ld" -o "Lab_5.axf"  ./src/Lab_5.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lMFRC522 -lSE1819 -lCMSIS_CORE_LPC17xx
+Memory region         Used Size  Region Size  %age Used
+C:\SE\SE1819\Debug\libSE1819.a(waitos.o): In function `WAITOS_Ms':
+       MFlash512:       14536 B       512 KB      2.77%
+        RamLoc32:         512 B        32 KB      1.56%
+C:\SE\SE1819\Debug/../src/waitos.c:14: undefined reference to `vTaskDelay'
+        RamAHB32:          0 GB        32 KB      0.00%
+collect2.exe: error: ld returned 1 exit status
+make: *** [Lab_5.axf] Error 1
+
+20:48:47 Build Finished (took 575ms)
+

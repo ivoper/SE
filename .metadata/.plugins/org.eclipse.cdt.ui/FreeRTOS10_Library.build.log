@@ -1,0 +1,6 @@
+11:10:23 **** Build of configuration Debug for project FreeRTOS10_Library ****
+make -r all 
+make: Nothing to be done for `all'.
+
+11:10:24 Build Finished (took 468ms)
+

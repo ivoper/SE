@@ -1,0 +1,85 @@
+11:59:20 **** Incremental Build of configuration Debug for project CMSIS_CORE_LPC17xx ****
+make -r all 
+make: Nothing to be done for `all'.
+11:59:21 **** Build of configuration Debug for project SE1819 ****
+make -r all 
+Building file: ../src/e2prom.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSIS_CORE_LPC17xx -D__LPC17XX__ -I"C:\SE\SE1819\inc" -I"C:\SE\FreeRTOS10_Library\src\portable" -I"C:\SE\FreeRTOS10_Library\include" -I"C:\SE\FreeRTOS10-template\inc" -I"C:\SE\CMSIS_CORE_LPC17xx\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/e2prom.d" -MT"src/e2prom.o" -MT"src/e2prom.d" -o "src/e2prom.o" "../src/e2prom.c"
+Finished building: ../src/e2prom.c
+ 
+Building target: libSE1819.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "libSE1819.a"  ./src/e2prom.o ./src/esp.o ./src/flash.o ./src/i2c.o ./src/keypad.o ./src/keypados.o ./src/lcd.o ./src/lcdos.o ./src/led.o ./src/mfrc.o ./src/ntp.o ./src/rb.o ./src/rtc.o ./src/spi.o ./src/uart.o ./src/wait.o ./src/waitos.o ./src/wifi.o   
+Finished building target: libSE1819.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "libSE1819.a" ; # arm-none-eabi-objdump -h -S "libSE1819.a" >"libSE1819.lss"
+   text	   data	    bss	    dec	    hex	filename
+    294	      0	      0	    294	    126	e2prom.o (ex libSE1819.a)
+   2099	      0	      0	   2099	    833	esp.o (ex libSE1819.a)
+    610	      0	    256	    866	    362	flash.o (ex libSE1819.a)
+   1352	      0	    316	   1668	    684	i2c.o (ex libSE1819.a)
+    348	      0	     48	    396	    18c	keypad.o (ex libSE1819.a)
+    804	      0	     56	    860	    35c	keypados.o (ex libSE1819.a)
+    584	      0	      0	    584	    248	lcd.o (ex libSE1819.a)
+    890	      0	      4	    894	    37e	lcdos.o (ex libSE1819.a)
+    192	      0	      8	    200	     c8	led.o (ex libSE1819.a)
+    260	      0	      0	    260	    104	mfrc.o (ex libSE1819.a)
+    285	      0	      0	    285	    11d	ntp.o (ex libSE1819.a)
+    256	      0	      0	    256	    100	rb.o (ex libSE1819.a)
+    408	      0	      0	    408	    198	rtc.o (ex libSE1819.a)
+    460	      0	      0	    460	    1cc	spi.o (ex libSE1819.a)
+    960	      0	    519	   1479	    5c7	uart.o (ex libSE1819.a)
+    280	      0	      4	    284	    11c	wait.o (ex libSE1819.a)
+     22	      0	      0	     22	     16	waitos.o (ex libSE1819.a)
+    708	      0	      0	    708	    2c4	wifi.o (ex libSE1819.a)
+ 
+11:59:37 **** Build of configuration Debug for project Test_Lab ****
+make -r -j4 all 
+Building file: ../src/Test_Lab.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSIS_CORE_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"C:\SE\Test_Lab\inc" -I"C:\SE\SE1819\inc" -I"C:\SE\CMSIS_CORE_LPC17xx\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/Test_Lab.d" -MT"src/Test_Lab.o" -MT"src/Test_Lab.d" -o "src/Test_Lab.o" "../src/Test_Lab.c"
+../src/Test_Lab.c: In function 'test_e2p_mem':
+../src/Test_Lab.c:53:12: warning: unused variable 'date' [-Wunused-variable]
+  struct tm date = {};
+            ^~~~
+../src/Test_Lab.c:49:17: warning: unused variable 'ctrl' [-Wunused-variable]
+  struct control ctrl = {.maintenanceCards[0] = MASTER_CARD_ID};
+                 ^~~~
+../src/Test_Lab.c:46:7: warning: variable 'v' set but not used [-Wunused-but-set-variable]
+  bool v[7] = {false};
+       ^
+../src/Test_Lab.c: In function 'test_wifi':
+../src/Test_Lab.c:165:16: warning: pointer targets in passing argument 1 of 'ESP_SetDNS' differ in signedness [-Wpointer-sign]
+  if(ESP_SetDNS("8.8.4.4", a, &length)){
+                ^~~~~~~~~
+In file included from ../src/Test_Lab.c:23:0:
+C:\SE\SE1819\inc/esp.h:94:5: note: expected 'unsigned char *' but argument is of type 'char *'
+ int ESP_SetDNS(unsigned char* domain, unsigned char* response, unsigned int *length);
+     ^~~~~~~~~~
+../src/Test_Lab.c:176:27: warning: passing argument 1 of 'localtime' from incompatible pointer type [-Wincompatible-pointer-types]
+  struct tm *t = localtime(&secs);
+                           ^
+In file included from ../src/Test_Lab.c:25:0:
+c:\nxp\mcuxpressoide_10.2.1_795\ide\tools\redlib\include\time.h:79:19: note: expected 'const time_t * {aka const unsigned int *}' but argument is of type 'long unsigned int *'
+ extern struct tm *localtime(const time_t *timer);
+                   ^~~~~~~~~
+Finished building: ../src/Test_Lab.c
+ 
+Building target: Test_Lab.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\SE\CMSIS_CORE_LPC17xx\Debug" -L"C:\SE\SE1819\Debug" -Xlinker -Map="Test_Lab.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Test_Lab_Debug.ld" -o "Test_Lab.axf"  ./src/Test_Lab.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o   -lSE1819 -lCMSIS_CORE_LPC17xx
+Memory region         Used Size  Region Size  %age Used
+       MFlash512:        4464 B       512 KB      0.85%
+        RamLoc32:        1332 B        32 KB      4.06%
+        RamAHB32:          0 GB        32 KB      0.00%
+Finished building target: Test_Lab.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Test_Lab.axf"; # arm-none-eabi-objcopy -v -O binary "Test_Lab.axf" "Test_Lab.bin" ; # checksum -p LPC1769 -d "Test_Lab.bin";
+   text	   data	    bss	    dec	    hex	filename
+   4460	      4	   1328	   5792	   16a0	Test_Lab.axf
+ 

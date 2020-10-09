@@ -1,0 +1,23 @@
+20:48:49 **** Build of configuration Debug for project Projeto_SE1 ****
+make -r -j4 all 
+Building file: ../src/helper.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_CMSIS=CMSIS_CORE_LPC17xx -D__LPC17XX__ -D__REDLIB__ -I"C:\SE\Projeto_SE1\inc" -I"C:\SE\MFRC522\inc" -I"C:\SE\SE1819\inc" -I"C:\SE\CMSIS_CORE_LPC17xx\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/helper.d" -MT"src/helper.o" -MT"src/helper.d" -o "src/helper.o" "../src/helper.c"
+Finished building: ../src/helper.c
+ 
+Building target: Projeto_SE1.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\SE\CMSIS_CORE_LPC17xx\Debug" -L"C:\SE\MFRC522\Release" -L"C:\SE\SE1819\Debug" -Xlinker -Map="Projeto_SE1.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Projeto_SE1_Debug.ld" -o "Projeto_SE1.axf"  ./src/Projeto_SE1.o ./src/app_mem_managment.o ./src/cr_startup_lpc175x_6x.o ./src/crp.o ./src/helper.o   -lMFRC522 -lSE1819 -lCMSIS_CORE_LPC17xx
+Memory region         Used Size  Region Size  %age Used
+C:\SE\SE1819\Debug\libSE1819.a(rtc.o): In function `RTC_SetSeconds':
+       MFlash512:       20520 B       512 KB      3.91%
+C:\SE\SE1819\Debug/../src/rtc.c:67: undefined reference to `localtime_r'
+        RamLoc32:         840 B        32 KB      2.56%
+C:\SE\SE1819\Debug\libSE1819.a(waitos.o): In function `WAITOS_Ms':
+        RamAHB32:          0 GB        32 KB      0.00%
+C:\SE\SE1819\Debug/../src/waitos.c:14: undefined reference to `vTaskDelay'
+collect2.exe: error: ld returned 1 exit status
+make: *** [Projeto_SE1.axf] Error 1
+
+20:48:49 Build Finished (took 631ms)
+

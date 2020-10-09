@@ -1,0 +1,6 @@
+-mudança de alguns metodos do project.c para helper.c (initializeApp e resetFlash)
+-organização dos metodos de estado no project.c (waits clears e algumas mudanças de estado feitas nos metodos no helper.c)
+-fix no set calendar e clock 
+	-variavel final nao era unsigned e podia dar a volta para negativo
+	-final passou a ser um array para guardar valor de cada campo
+	-array de val não tinha valor de inicialização e se o utilizador não colocasse nada, pressionando # logo, dava erro
